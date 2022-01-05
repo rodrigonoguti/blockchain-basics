@@ -58,7 +58,7 @@ Blockchain.prototype.getLastBlock = function () {
  * @param {string} recipient recipient address
  * @returns index of the last block
  */
-Blockchain.prototype.createNewTransation = function (amount, sender, recipient) {
+Blockchain.prototype.createNewTransaction = function (amount, sender, recipient) {
   const newTransaction = {
     amount,
     sender,
@@ -68,7 +68,7 @@ Blockchain.prototype.createNewTransation = function (amount, sender, recipient) 
   // Push the new transaction to the transactions array
   this.pendingTransactions.push(newTransaction);
 
-  return this.getLastBlock()['index'];
+  return this.getLastBlock()['index'] + 1;
 }
 
 /**
