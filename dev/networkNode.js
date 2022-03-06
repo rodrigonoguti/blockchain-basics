@@ -246,6 +246,24 @@ app.get('/consensus', function (req, res) {
     })
 });
 
+// get block by hash
+app.get('/block/:blockHash', function (req, res) {
+  const blockHash = req.params.blockHash;
+  const correctBlock = bitcoin.getBlock(blockHash);
+
+  res.json({ block: correctBlock });
+});
+
+// get transaction by id
+app.get('/transaction/:transactionId', function (req, res) {
+
+});
+
+// get data for an specific address
+app.get('/address/:address', function (req, res) {
+
+});
+
 app.listen(port, function () {
   console.log(`Listening on port ${port}...`);
 });
