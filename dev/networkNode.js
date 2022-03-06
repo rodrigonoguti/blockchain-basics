@@ -8,6 +8,7 @@ const requestPromise = require('request-promise');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use(express.static(__dirname + '/docs'));
 
 // create blockchain node identifier
 const nodeAddress = uuid().split('-').join('');
@@ -278,6 +279,11 @@ app.get('/address/:address', function (req, res) {
 // show block explorer
 app.get('/block-explorer', function (req, res) {
   res.sendFile('./block-explorer/index.html', { root: __dirname });
+});
+
+// show api documentation
+app.get('/docs', function (req, res) {
+  res.sendFile('./docs/index.html', { root: __dirname });
 });
 
 app.listen(port, function () {
