@@ -9,7 +9,7 @@
 - You can run more nodes using `nodemon --watch dev -e js dev/networkNode.js <PORT> http://localhost:<PORT>`. Just replace `<PORT>` to a port that is not being used already.
 
 ## API Documentation
-- Just hit `http://localhost:<PORT>/docs` on your browser. Just replace `<PORT>` to the one running any of your nodes.
+- Just hit `http://localhost:<PORT>/docs` on your browser. Just replace `<PORT>` to one that's running any of your nodes.
 
 ## Block Explorer
 - Visit `http://localhost:<PORT>/block-explorer` on your browser. It's a web interface to show the blockchain data.
