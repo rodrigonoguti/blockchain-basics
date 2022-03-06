@@ -203,4 +203,36 @@ Blockchain.prototype.getTransaction = function (transactionId) {
   };
 }
 
+/**
+ * Get transactions data for an specific address
+ * @param {string} address 
+ * @returns object with address transactions list and its balance
+ */
+Blockchain.prototype.getAddressData = function (address) {
+  const addressTransactions = [];
+
+  this.chain.forEach(block => {
+    block.transactions.forEach(transaction => {
+      if (transaction.sender === address || transaction.recipient === address) {
+        addressTransactions.push(transaction);
+      }
+    })
+  });
+
+  let addressBalance = 0;
+
+  addressTransactions.forEach(transaction => {
+    if (transaction.recipient === address) {
+      addressBalance += transaction.amount;
+    } else {
+      addressBalance -= transaction.amount;
+    }
+  });
+
+  return {
+    addressTransactions,
+    addressBalance
+  };
+}
+
 module.exports = Blockchain;
